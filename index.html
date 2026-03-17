@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+
   <style>
     :root {
       --cream: #F8F4EE;
@@ -21,9 +22,15 @@
       --card-bg: #FFFFFF;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: 'DM Sans', sans-serif;
@@ -32,10 +39,11 @@
       overflow-x: hidden;
     }
 
-    /* ── HEADER ─────────────────────────────── */
     header {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       display: flex;
       align-items: center;
@@ -55,7 +63,15 @@
       text-decoration: none;
     }
 
-    .logo span { color: var(--gold); }
+    .logo span {
+      color: var(--gold);
+    }
+
+    .header-cta,
+    .btn-primary,
+    .card-btn {
+      text-decoration: none;
+    }
 
     .header-cta {
       display: inline-flex;
@@ -63,20 +79,26 @@
       gap: 8px;
       background: var(--charcoal);
       color: var(--cream);
-      font-family: 'DM Sans', sans-serif;
       font-size: 0.85rem;
       font-weight: 500;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       padding: 10px 22px;
       border-radius: 2px;
-      text-decoration: none;
       transition: background 0.2s, transform 0.15s;
     }
-    .header-cta:hover { background: var(--gold); transform: translateY(-1px); }
-    .header-cta svg { width: 14px; height: 14px; }
 
-    /* ── HERO ────────────────────────────────── */
+    .header-cta:hover {
+      background: var(--gold);
+      transform: translateY(-1px);
+    }
+
+    .header-cta svg,
+    .card-btn svg {
+      width: 14px;
+      height: 14px;
+    }
+
     .hero {
       min-height: 100vh;
       display: flex;
@@ -131,7 +153,7 @@
       font-size: 1.15rem;
       font-weight: 300;
       color: var(--muted);
-      max-width: 480px;
+      max-width: 520px;
       line-height: 1.65;
       margin-bottom: 44px;
       opacity: 0;
@@ -153,16 +175,15 @@
       gap: 9px;
       background: var(--gold);
       color: var(--dark-brown);
-      font-family: 'DM Sans', sans-serif;
       font-size: 0.95rem;
       font-weight: 500;
       letter-spacing: 0.04em;
       padding: 16px 36px;
       border-radius: 2px;
-      text-decoration: none;
       transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
       box-shadow: 0 4px 24px rgba(200,151,58,0.25);
     }
+
     .btn-primary:hover {
       background: var(--gold-light);
       transform: translateY(-2px);
@@ -183,7 +204,11 @@
       text-decoration: none;
       transition: border-color 0.2s, color 0.2s;
     }
-    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
 
     .hero-scroll {
       position: absolute;
@@ -201,6 +226,7 @@
       opacity: 0;
       animation: fadeUp 0.7s 1.1s forwards;
     }
+
     .scroll-line {
       width: 1px;
       height: 40px;
@@ -208,23 +234,12 @@
       animation: scrollPulse 2s 1.5s infinite;
     }
 
-    /* ── DECORATIVE RULE ─────────────────────── */
-    .divider {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 0 48px;
+    .products {
+      padding: 80px 32px;
+      max-width: 1200px;
       margin: 0 auto;
-      max-width: 1100px;
-    }
-    .divider-line { flex: 1; height: 1px; background: var(--border); }
-    .divider-icon {
-      color: var(--gold);
-      font-size: 1.1rem;
-      letter-spacing: 0.3em;
     }
 
-    /* ── SECTION LABEL ───────────────────────── */
     .section-label {
       font-size: 0.75rem;
       font-weight: 500;
@@ -234,6 +249,7 @@
       text-align: center;
       margin-bottom: 12px;
     }
+
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(1.9rem, 3.5vw, 2.8rem);
@@ -241,13 +257,6 @@
       color: var(--dark-brown);
       text-align: center;
       margin-bottom: 48px;
-    }
-
-    /* ── PRODUCT GRID ────────────────────────── */
-    .products {
-      padding: 80px 32px;
-      max-width: 1200px;
-      margin: 0 auto;
     }
 
     .grid {
@@ -265,6 +274,7 @@
       display: flex;
       flex-direction: column;
     }
+
     .card:hover {
       transform: translateY(-6px);
       box-shadow: 0 20px 48px rgba(28,28,28,0.10);
@@ -273,21 +283,26 @@
     .card-img-wrap {
       position: relative;
       overflow: hidden;
-      aspect-ratio: 3/4;
+      aspect-ratio: 3 / 4;
       background: #EEE9E1;
     }
 
     .card-img-wrap img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       transition: transform 0.4s ease;
       display: block;
     }
-    .card:hover .card-img-wrap img { transform: scale(1.04); }
+
+    .card:hover .card-img-wrap img {
+      transform: scale(1.04);
+    }
 
     .card-badge {
       position: absolute;
-      top: 12px; left: 12px;
+      top: 12px;
+      left: 12px;
       background: var(--gold);
       color: var(--dark-brown);
       font-size: 0.68rem;
@@ -298,32 +313,13 @@
       border-radius: 2px;
     }
 
-    /* Placeholder art for cards without real images */
-    .card-placeholder {
-      width: 100%; height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background: linear-gradient(135deg, #F0EBE1 0%, #E8E0D2 100%);
-      color: var(--muted);
-    }
-    .card-placeholder svg { width: 40px; height: 40px; opacity: 0.35; }
-    .card-placeholder-text {
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-align: center;
-      padding: 0 24px;
-      opacity: 0.55;
-    }
-
     .card-body {
       padding: 20px 22px 22px;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
+
     .card-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.05rem;
@@ -332,12 +328,15 @@
       margin-bottom: 6px;
       line-height: 1.3;
     }
+
     .card-sub {
       font-size: 0.82rem;
       color: var(--muted);
       margin-bottom: 18px;
       flex: 1;
+      line-height: 1.5;
     }
+
     .card-btn {
       display: inline-flex;
       align-items: center;
@@ -351,17 +350,19 @@
       text-transform: uppercase;
       padding: 11px 0;
       border-radius: 2px;
-      text-decoration: none;
-      transition: background 0.2s;
+      transition: background 0.2s, color 0.2s;
     }
-    .card-btn:hover { background: var(--gold); color: var(--dark-brown); }
-    .card-btn svg { width: 13px; height: 13px; }
 
-    /* ── TRUST STRIP ─────────────────────────── */
+    .card-btn:hover {
+      background: var(--gold);
+      color: var(--dark-brown);
+    }
+
     .trust {
       background: var(--dark-brown);
       padding: 72px 32px;
     }
+
     .trust-inner {
       max-width: 900px;
       margin: 0 auto;
@@ -370,30 +371,51 @@
       gap: 48px;
       text-align: center;
     }
-    .trust-item { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
     .trust-icon {
-      width: 52px; height: 52px;
+      width: 52px;
+      height: 52px;
       background: rgba(200,151,58,0.15);
       border: 1px solid rgba(200,151,58,0.3);
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .trust-icon svg { width: 22px; height: 22px; color: var(--gold); }
+
+    .trust-icon svg {
+      width: 22px;
+      height: 22px;
+      color: var(--gold);
+    }
+
     .trust-label {
       font-family: 'Playfair Display', serif;
       font-size: 1.1rem;
       font-weight: 700;
       color: var(--cream);
     }
-    .trust-desc { font-size: 0.85rem; color: rgba(248,244,238,0.55); line-height: 1.6; }
 
-    /* ── BOTTOM CTA ──────────────────────────── */
+    .trust-desc {
+      font-size: 0.85rem;
+      color: rgba(248,244,238,0.55);
+      line-height: 1.6;
+    }
+
     .bottom-cta {
       padding: 100px 32px;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
+
     .bottom-cta::before {
       content: '';
       position: absolute;
@@ -401,6 +423,7 @@
       background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(200,151,58,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
+
     .bottom-cta h2 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2rem, 4vw, 3.5rem);
@@ -409,6 +432,7 @@
       margin-bottom: 16px;
       line-height: 1.1;
     }
+
     .bottom-cta p {
       font-size: 1.05rem;
       color: var(--muted);
@@ -416,7 +440,27 @@
       font-weight: 300;
     }
 
-    /* ── FOOTER ──────────────────────────────── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 0 48px;
+      margin: 0 auto;
+      max-width: 1100px;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .divider-icon {
+      color: var(--gold);
+      font-size: 1.1rem;
+      letter-spacing: 0.3em;
+    }
+
     footer {
       border-top: 1px solid var(--border);
       padding: 28px 48px;
@@ -426,6 +470,7 @@
       gap: 16px;
       flex-wrap: wrap;
     }
+
     .footer-logo {
       font-family: 'Playfair Display', serif;
       font-size: 1.1rem;
@@ -433,187 +478,222 @@
       color: var(--dark-brown);
       text-decoration: none;
     }
-    .footer-logo span { color: var(--gold); }
+
+    .footer-logo span {
+      color: var(--gold);
+    }
+
     footer p {
       font-size: 0.8rem;
       color: var(--muted);
     }
 
-    /* ── ANIMATIONS ──────────────────────────── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.4; }
-      50%       { opacity: 1; }
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    /* ── RESPONSIVE ──────────────────────────── */
+    @keyframes scrollPulse {
+      0%, 100% {
+        opacity: 0.4;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
     @media (max-width: 680px) {
-      header { padding: 16px 20px; }
-      .hero { padding: 100px 20px 70px; }
-      .products { padding: 60px 20px; }
-      .trust { padding: 56px 20px; }
-      footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+      header {
+        padding: 16px 20px;
+      }
+
+      .hero {
+        padding: 100px 20px 70px;
+      }
+
+      .products {
+        padding: 60px 20px;
+      }
+
+      .trust {
+        padding: 56px 20px;
+      }
+
+      footer {
+        padding: 24px 20px;
+        flex-direction: column;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
     <a href="#" class="logo">Shoot<span>Post</span>Print</a>
     <a href="https://www.etsy.com/shop/ShootPostPrint" target="_blank" rel="noopener" class="header-cta">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+        <polyline points="15 3 21 3 21 9"/>
+        <line x1="10" y1="14" x2="21" y2="3"/>
+      </svg>
       Shop on Etsy
     </a>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <p class="hero-eyebrow">Digital Wall Art · Instant Download</p>
     <h1>Modern Art for <em>Every</em> Wall</h1>
-    <p class="hero-sub">High-quality printable designs for home, office, and gifts. Download instantly and print anywhere.</p>
+    <p class="hero-sub">Printable wall art, cyberpunk posters, botanical sets, and quote prints designed for home, office, and gifts.</p>
+
     <div class="hero-cta-wrap">
       <a href="https://www.etsy.com/shop/ShootPostPrint" target="_blank" rel="noopener" class="btn-primary">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
         Shop on Etsy
       </a>
       <a href="#products" class="btn-ghost">See the Collection ↓</a>
     </div>
+
     <div class="hero-scroll">
       <div class="scroll-line"></div>
       scroll
     </div>
   </section>
 
-  <!-- PRODUCT GRID -->
   <section class="products" id="products">
     <p class="section-label">The Collection</p>
     <h2 class="section-title">Designs Made to Be Printed</h2>
 
     <div class="grid">
 
-      <!-- ══ CARD 1 ══ Replace href, img src, title & sub ══ -->
       <div class="card">
-        <a href="https://www.etsy.com/shop/ShootPostPrint" target="_blank" rel="noopener">
+        <a href="https://www.etsy.com/listing/4471750257/not-fragile-like-a-flower-quote" target="_blank" rel="noopener">
           <div class="card-img-wrap">
-            <!-- REPLACE: <img src="YOUR-IMAGE-1.jpg" alt="Product name" /> -->
-            <div class="card-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <span class="card-placeholder-text">Add your product image here</span>
-            </div>
+            <img src="Images/flower-quote.png" alt="Not Fragile Like a Flower Quote Printable Strong Woman Wall Art Digital Download" />
             <span class="card-badge">Best Seller</span>
           </div>
         </a>
         <div class="card-body">
-          <p class="card-title">Motivational Poster – Never Give Up</p>
-          <p class="card-sub">Instant digital download · High-resolution · Multiple sizes</p>
-          <a href="https://www.etsy.com/shop/ShootPostPrint" target="_blank" rel="noopener" class="card-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <p class="card-title">Not Fragile Like a Flower Quote Printable</p>
+          <p class="card-sub">Strong woman wall art · Instant digital download · High-resolution printable</p>
+          <a href="https://www.etsy.com/listing/4471750257/not-fragile-like-a-flower-quote" target="_blank" rel="noopener" class="card-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
             Download on Etsy
           </a>
         </div>
       </div>
 
-      <!-- ══ CARD 2 ══ -->
       <div class="card">
-        <a href="https://www.etsy.com/shop/ShootPostPrint" target="_blank" rel="noopener">
+        <a href="https://www.etsy.com/listing/4471946469/cyberpunk-anime-woman-poster-neon-wall" target="_blank" rel="noopener">
           <div class="card-img-wrap">
-            <div class="card-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <span class="card-placeholder-text">Add your product image here</span>
-            </div>
+            <img src="Images/cyberpunk-anime-woman.png" alt="Cyberpunk Anime Woman Poster Neon Wall Art Digital Download" />
           </div>
         </a>
         <div class="card-body">
-          <p class="card-title">Cyberpunk City – Neon Nights</p>
-          <p class="card-sub">Instant digital download · High-resolution · Multiple sizes</p>
-          <a href="https://www.etsy.com/shop/ShootPostPrint" target="_blank" rel="noopener" class="card-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <p class="card-title">Cyberpunk Anime Woman Poster</p>
+          <p class="card-sub">Neon wall art · Instant digital download · Futuristic printable decor</p>
+          <a href="https://www.etsy.com/listing/4471946469/cyberpunk-anime-woman-poster-neon-wall" target="_blank" rel="noopener" class="card-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
             Download on Etsy
           </a>
         </div>
       </div>
 
-      <!-- ══ CARD 3 ══ -->
       <div class="card">
-        <a href="https://www.etsy.com/shop/ShootPostPrint" target="_blank" rel="noopener">
+        <a href="https://www.etsy.com/listing/4471985796/cyberpunk-car-poster-set-neon-supercar" target="_blank" rel="noopener">
           <div class="card-img-wrap">
-            <div class="card-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <span class="card-placeholder-text">Add your product image here</span>
-            </div>
-            <span class="card-badge">New</span>
-          </div>
-        </a>
-        <div class="card-body">
-          <p class="card-title">Minimal Abstract – Warm Tones</p>
-          <p class="card-sub">Instant digital download · High-resolution · Multiple sizes</p>
-          <a href="https://www.etsy.com/shop/ShootPostPrint" target="_blank" rel="noopener" class="card-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download on Etsy
-          </a>
-        </div>
-      </div>
-
-      <!-- ══ CARD 4 ══ -->
-      <div class="card">
-        <a href="https://www.etsy.com/shop/ShootPostPrint" target="_blank" rel="noopener">
-          <div class="card-img-wrap">
-            <div class="card-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <span class="card-placeholder-text">Add your product image here</span>
-            </div>
-          </div>
-        </a>
-        <div class="card-body">
-          <p class="card-title">Office Art – Daily Grind Humor</p>
-          <p class="card-sub">Instant digital download · High-resolution · Multiple sizes</p>
-          <a href="https://www.etsy.com/shop/ShootPostPrint" target="_blank" rel="noopener" class="card-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download on Etsy
-          </a>
-        </div>
-      </div>
-
-      <!-- ══ CARD 5 ══ -->
-      <div class="card">
-        <a href="https://www.etsy.com/shop/ShootPostPrint" target="_blank" rel="noopener">
-          <div class="card-img-wrap">
-            <div class="card-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <span class="card-placeholder-text">Add your product image here</span>
-            </div>
-          </div>
-        </a>
-        <div class="card-body">
-          <p class="card-title">Botanical Print – Black & White</p>
-          <p class="card-sub">Instant digital download · High-resolution · Multiple sizes</p>
-          <a href="https://www.etsy.com/shop/ShootPostPrint" target="_blank" rel="noopener" class="card-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download on Etsy
-          </a>
-        </div>
-      </div>
-
-      <!-- ══ CARD 6 ══ -->
-      <div class="card">
-        <a href="https://www.etsy.com/shop/ShootPostPrint" target="_blank" rel="noopener">
-          <div class="card-img-wrap">
-            <div class="card-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <span class="card-placeholder-text">Add your product image here</span>
-            </div>
+            <img src="Images/cyberpunk-car-set.png" alt="Cyberpunk Car Poster Set Neon Supercar Wall Art Printable Futuristic Digital Download" />
             <span class="card-badge">Popular</span>
           </div>
         </a>
         <div class="card-body">
-          <p class="card-title">Bathroom Humor – Funny Quote Art</p>
-          <p class="card-sub">Instant digital download · High-resolution · Multiple sizes</p>
-          <a href="https://www.etsy.com/shop/ShootPostPrint" target="_blank" rel="noopener" class="card-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <p class="card-title">Cyberpunk Car Poster Set</p>
+          <p class="card-sub">Neon supercar wall art · Printable futuristic decor · Digital download</p>
+          <a href="https://www.etsy.com/listing/4471985796/cyberpunk-car-poster-set-neon-supercar" target="_blank" rel="noopener" class="card-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download on Etsy
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <a href="https://www.etsy.com/listing/4472048679/cyberpunk-woman-poster-neon-wall-art" target="_blank" rel="noopener">
+          <div class="card-img-wrap">
+            <img src="Images/cyberpunk-woman.png" alt="Cyberpunk Woman Poster Neon Wall Art Printable Photo" />
+          </div>
+        </a>
+        <div class="card-body">
+          <p class="card-title">Cyberpunk Woman Poster</p>
+          <p class="card-sub">Neon wall art printable photo · Instant digital download · Modern decor</p>
+          <a href="https://www.etsy.com/listing/4472048679/cyberpunk-woman-poster-neon-wall-art" target="_blank" rel="noopener" class="card-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download on Etsy
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <a href="https://www.etsy.com/listing/4472033325/bathroom-wall-art-set-women-vanity-decor" target="_blank" rel="noopener">
+          <div class="card-img-wrap">
+            <img src="Images/bathroom-vanity-set.png" alt="Bathroom Wall Art Set Women Vanity Decor Printable Makeup Beauty Poster" />
+          </div>
+        </a>
+        <div class="card-body">
+          <p class="card-title">Bathroom Wall Art Set</p>
+          <p class="card-sub">Women vanity decor · Makeup beauty poster · Printable digital download</p>
+          <a href="https://www.etsy.com/listing/4472033325/bathroom-wall-art-set-women-vanity-decor" target="_blank" rel="noopener" class="card-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download on Etsy
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <a href="https://www.etsy.com/listing/4472017063/abstract-botanical-wall-art-set-mid" target="_blank" rel="noopener">
+          <div class="card-img-wrap">
+            <img src="Images/abstract-botanical-set.png" alt="Abstract Botanical Wall Art Set Mid Century Modern Printable Plant Decor" />
+            <span class="card-badge">New</span>
+          </div>
+        </a>
+        <div class="card-body">
+          <p class="card-title">Abstract Botanical Wall Art Set</p>
+          <p class="card-sub">Mid century modern printable plant decor · Instant digital download</p>
+          <a href="https://www.etsy.com/listing/4472017063/abstract-botanical-wall-art-set-mid" target="_blank" rel="noopener" class="card-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
             Download on Etsy
           </a>
         </div>
@@ -622,43 +702,54 @@
     </div>
   </section>
 
-  <!-- TRUST STRIP -->
   <section class="trust">
     <div class="trust-inner">
 
       <div class="trust-item">
         <div class="trust-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"/>
+            <polyline points="13 2 13 9 20 9"/>
+          </svg>
         </div>
         <p class="trust-label">Instant Digital Download</p>
-        <p class="trust-desc">Purchase once, download immediately — no waiting, no shipping.</p>
+        <p class="trust-desc">Purchase once, download immediately with no shipping delay.</p>
       </div>
 
       <div class="trust-item">
         <div class="trust-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 6 2 18 2 18 9"/>
+            <path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/>
+            <rect x="6" y="14" width="12" height="8"/>
+          </svg>
         </div>
         <p class="trust-label">Print at Home or Shop</p>
-        <p class="trust-desc">Works perfectly at home, at FedEx, Walgreens, or any print lab.</p>
+        <p class="trust-desc">Use your home printer or print professionally at a local print shop.</p>
       </div>
 
       <div class="trust-item">
         <div class="trust-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
         </div>
         <p class="trust-label">High-Resolution Files</p>
-        <p class="trust-desc">300 DPI files that look crisp and beautiful at any print size.</p>
+        <p class="trust-desc">Crisp printable artwork designed to look sharp across multiple sizes.</p>
       </div>
 
     </div>
   </section>
 
-  <!-- BOTTOM CTA -->
   <section class="bottom-cta">
     <h2>See the Full Collection</h2>
-    <p>Over 100 designs ready to download, print, and hang today.</p>
+    <p>Explore more printable wall art, quote posters, cyberpunk designs, and decor sets.</p>
     <a href="https://www.etsy.com/shop/ShootPostPrint" target="_blank" rel="noopener" class="btn-primary" style="font-size:1rem; padding:18px 48px;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
       Browse Full Shop on Etsy
     </a>
   </section>
@@ -669,7 +760,6 @@
     <div class="divider-line"></div>
   </div>
 
-  <!-- FOOTER -->
   <footer>
     <a href="#" class="footer-logo">Shoot<span>Post</span>Print</a>
     <p>© 2026 ShootPostPrint · All designs are digital files for personal use.</p>
